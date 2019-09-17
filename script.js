@@ -2,30 +2,25 @@ const wave = (a) => {
     var narr =[]
     var word = ""
     var it = 0
+    var aCopy = a.split("")
 
-// a.split("").forEach((letter, i) => {
-    
-//     if(letter === " " || letter === ""){
-//         a.split("").splice(i,i)
-//     }
-//     console.log(a,letter,i)
-// })
-
-
-
-var aCopy = a.split("")
-
+var filtered = aCopy.filter(w =>{
+  if(w != " "){
+    return w
+  }
+})
+console.log(filtered)
 
  const pushThis = (str) => {
- a.split("").map((letter,i)=>{
+ filtered.map((letter,i)=>{
    
 //    console.log(a.split("").indexOf(letter, i) , i)
-   if(aCopy.indexOf(letter, i) === it){
+   if(filtered.indexOf(letter, i) === it){
     word += letter.toUpperCase()
    }else{
      word += letter.toLowerCase()
  }
- if(i === aCopy.length - 1){
+ if(i === filtered.length - 1){
     it++
    }
  })
@@ -34,10 +29,11 @@ var aCopy = a.split("")
  word = ""
  }
 
- aCopy.forEach(a=>{
+ filtered.forEach(a=>{
      pushThis(a)
  })
-console.log(narr)
+return narr
+
 }
 
   wave(" hello")
